@@ -1,0 +1,62 @@
+{
+  "info": {
+    "name": "Tech Challenge Fase 1 - Usuarios",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Cadastrar usuário válido",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "url": {"raw": "http://localhost:8080/api/v1/usuarios", "host": ["http", "localhost"], "port": "8080", "path": ["api","v1","usuarios"]},
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nome\": \"Lucas\",\n  \"email\": \"lucas@example.com\",\n  \"login\": \"lucas\",\n  \"senha\": \"123456\",\n  \"tipo\": \"CLIENTE\",\n  \"endereco\": {\n    \"rua\": \"Rua A\",\n    \"numero\": \"123\",\n    \"cidade\": \"Recife\",\n    \"cep\": \"01000-000\"\n  }\n}"
+        }
+      }
+    },
+    {
+      "name": "Cadastro inválido - email duplicado",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "url": {"raw": "http://localhost:8080/api/v1/usuarios", "host": ["http", "localhost"], "port": "8080", "path": ["api","v1","usuarios"]},
+        "body": {"mode": "raw", "raw": "{\n  \"nome\": \"Bruna\",\n  \"email\": \"lucas@example.com\",\n  \"login\": \"bruna\",\n  \"senha\": \"abcdef\",\n  \"tipo\": \"CLIENTE\",\n  \"endereco\": {\n    \"rua\": \"Rua B\",\n    \"numero\": \"456\",\n    \"cidade\": \"Recife\",\n    \"cep\": \"02000-000\"\n  }\n}"}
+      }
+    },
+    {
+      "name": "Alterar senha",
+      "request": {
+        "method": "PATCH",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "url": {"raw": "http://localhost:8080/api/v1/usuarios/1/senha", "host": ["http", "localhost"], "port": "8080", "path": ["api","v1","usuarios","1","senha"]},
+        "body": {"mode": "raw", "raw": "{\n  \"novaSenha\": \"nova123\"\n}"}
+      }
+    },
+    {
+      "name": "Atualizar dados do usuário",
+      "request": {
+        "method": "PUT",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "url": {"raw": "http://localhost:8080/api/v1/usuarios/1", "host": ["http", "localhost"], "port": "8080", "path": ["api","v1","usuarios","1"]},
+        "body": {"mode": "raw", "raw": "{\n  \"nome\": \"Lucas Costa\",\n  \"tipo\": \"CLIENTE\",\n  \"endereco\": {\n    \"rua\": \"Rua A\",\n    \"numero\": \"123\",\n    \"cidade\": \"Recife\",\n    \"cep\": \"01000-000\"\n  }\n}"}
+      }
+    },
+    {
+      "name": "Buscar por nome",
+      "request": {
+        "method": "GET",
+        "url": {"raw": "http://localhost:8080/api/v1/usuarios/buscar?nome=luc", "host": ["http", "localhost"], "port": "8080", "path": ["api","v1","usuarios","buscar"], "query": [{"key": "nome", "value": "luc"}]}
+      }
+    },
+    {
+      "name": "Validar login",
+      "request": {
+        "method": "POST",
+        "url": {"raw": "http://localhost:8080/api/v1/usuarios/login?login=lucas&senha=123456", "host": ["http", "localhost"], "port": "8080", "path": ["api","v1","usuarios","login"], "query": [{"key": "login","value":"lucas"},{"key":"senha","value":"123456"}]}
+      }
+    }
+  ]
+}
+
