@@ -1,4 +1,4 @@
-# Tech Challenge Fase 1 - Backend de Usuários
+# Tech Challenge - Backend de Usuários
 
 Este projeto implementa um backend em Spring Boot para gestão de usuários de restaurantes.
 
