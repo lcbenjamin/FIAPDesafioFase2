@@ -2,6 +2,7 @@ package br.com.gestaoeventos.desafioFase1.api.controller;
 
 import br.com.gestaoeventos.desafioFase1.api.dto.PasswordUpdateDto;
 import br.com.gestaoeventos.desafioFase1.api.dto.UserDto;
+import br.com.gestaoeventos.desafioFase1.api.dto.UserTypeAssociationDto;
 import br.com.gestaoeventos.desafioFase1.api.dto.UserUpdateDto;
 import br.com.gestaoeventos.desafioFase1.api.mapper.UserMapper;
 import br.com.gestaoeventos.desafioFase1.domain.User;
@@ -30,7 +31,7 @@ public class UserController {
     @PostMapping
     public ResponseEntity<User> create(@Valid @RequestBody UserDto dto) {
         User user = UserMapper.toEntity(dto);
-        User created = userService.create(user);
+        User created = userService.create(user, dto.tipoId);
         return ResponseEntity.created(URI.create("/api/v1/usuarios/" + created.getId())).body(created);
     }
 
@@ -44,7 +45,7 @@ public class UserController {
     @PutMapping("/{id}")
     public User update(@PathVariable Long id, @Valid @RequestBody UserUpdateDto dto) {
         User data = UserMapper.updateDtoToEntity(dto);
-        return userService.updateData(id, data);
+        return userService.updateData(id, data, dto.tipoId);
     }
 
     @Operation(summary = "Excluir usuário")
@@ -59,6 +60,12 @@ public class UserController {
     public ResponseEntity<Void> updatePassword(@PathVariable Long id, @Valid @RequestBody PasswordUpdateDto dto) {
         userService.updatePassword(id, dto.novaSenha);
         return ResponseEntity.noContent().build();
+    }
+
+    @Operation(summary = "Associar/alterar tipo do usuário")
+    @PatchMapping("/{id}/tipo")
+    public User updateType(@PathVariable Long id, @Valid @RequestBody UserTypeAssociationDto dto) {
+        return userService.updateType(id, dto.tipoId);
     }
 
     @Operation(summary = "Buscar usuários por nome")

@@ -14,7 +14,7 @@ public class UserMapper {
         dto.email = usuario.getEmail();
         dto.login = usuario.getLogin();
         dto.endereco = usuario.getEndereco();
-        dto.tipo = usuario.getTipo();
+        dto.tipoId = usuario.getTipo() != null ? usuario.getTipo().getId() : null;
         return dto;
     }
 
@@ -25,7 +25,6 @@ public class UserMapper {
         user.setLogin(dto.login);
         user.setSenha(dto.senha);
         user.setEndereco(dto.endereco);
-        user.setTipo(dto.tipo);
         return user;
     }
 
@@ -33,7 +32,6 @@ public class UserMapper {
         User user = new User();
         user.setNome(dto.nome);
         user.setEndereco(dto.endereco);
-        user.setTipo(dto.tipo);
         return user;
     }
 

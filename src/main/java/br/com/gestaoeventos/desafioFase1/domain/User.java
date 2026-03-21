@@ -34,8 +34,8 @@ public class User {
     @NotNull
     private Address endereco;
 
-    @Enumerated(EnumType.STRING)
-    @NotNull
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @JoinColumn(name = "tipo_id", nullable = false)
     private UserType tipo;
 
     @PrePersist
