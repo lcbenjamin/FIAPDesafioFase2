@@ -17,14 +17,14 @@ O README foi organizado para servir como:
 A aplicacao entrega:
 - CRUD de tipos de usuario
 - CRUD de usuarios
+- CRUD de restaurantes com dono associado a usuario existente
+- CRUD de itens de cardapio associados a restaurante existente
 - endpoint separado para troca de senha
 - endpoint separado para atualizacao de dados do usuario
 - busca de usuarios por nome
 - validacao simples de login (login + senha)
 - garantia de unicidade de e-mail no cadastro de usuario
 - registro de data da ultima alteracao do usuario
-- CRUD de restaurantes com dono associado a usuario existente
-- CRUD de itens de cardapio associados a restaurante existente
 - execucao com Docker Compose (app + MySQL)
 
 ## 2) Tecnologias
