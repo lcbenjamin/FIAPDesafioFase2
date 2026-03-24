@@ -7,108 +7,112 @@ import br.com.gestaoeventos.desafioFase1.repository.RestaurantRepository;
 import br.com.gestaoeventos.desafioFase1.service.RestaurantService;
 import br.com.gestaoeventos.desafioFase1.service.UserService;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
-public class RestaurantServiceTest {
+@ExtendWith(MockitoExtension.class)
+class RestaurantServiceTest {
+
+    @Mock
+    private RestaurantRepository restaurantRepository;
+
+    @Mock
+    private UserService userService;
+
+    @InjectMocks
+    private RestaurantService restaurantService;
 
     @Test
-    void createRestaurantAssignsOwnerAndSaves() {
-        RestaurantRepository repo = Mockito.mock(RestaurantRepository.class);
-        UserService userService = Mockito.mock(UserService.class);
-        RestaurantService service = new RestaurantService(repo, userService);
+    void shouldCreateRestaurantWithExistingOwner() {
+        User owner = buildOwner(1L);
+        Restaurant restaurant = buildRestaurant("Restaurante da Neide", "Brasileira", "11:00-23:00");
 
-        User dono = new User();
-        dono.setId(10L);
-        Mockito.when(userService.getById(10L)).thenReturn(dono);
-        Mockito.when(repo.save(Mockito.any(Restaurant.class))).thenAnswer(invocation -> invocation.getArgument(0));
+        when(userService.getById(1L)).thenReturn(owner);
+        when(restaurantRepository.save(any(Restaurant.class))).thenAnswer(invocation -> invocation.getArgument(0));
 
+        Restaurant created = restaurantService.create(restaurant, 1L);
+
+        assertEquals(owner, created.getDono());
+        assertEquals("Restaurante da Neide", created.getNome());
+        verify(restaurantRepository).save(restaurant);
+    }
+
+    @Test
+    void shouldUpdateRestaurantData() {
+        Restaurant existing = buildRestaurant("Antigo", "Caseira", "10:00-18:00");
+        existing.setId(7L);
+
+        Restaurant newData = buildRestaurant("Novo Nome", "Italiana", "11:00-22:00");
+        User newOwner = buildOwner(2L);
+
+        when(restaurantRepository.findById(7L)).thenReturn(Optional.of(existing));
+        when(userService.getById(2L)).thenReturn(newOwner);
+        when(restaurantRepository.save(existing)).thenReturn(existing);
+
+        Restaurant updated = restaurantService.update(7L, newData, 2L);
+
+        assertEquals("Novo Nome", updated.getNome());
+        assertEquals("Italiana", updated.getTipoCozinha());
+        assertEquals("11:00-22:00", updated.getHorarioFuncionamento());
+        assertEquals(newOwner, updated.getDono());
+        verify(restaurantRepository).save(existing);
+    }
+
+    @Test
+    void shouldThrowWhenRestaurantNotFound() {
+        when(restaurantRepository.findById(99L)).thenReturn(Optional.empty());
+
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class,
+                () -> restaurantService.getById(99L));
+
+        assertEquals("Restaurante nao encontrado", ex.getMessage());
+    }
+
+    @Test
+    void shouldDeleteRestaurantWhenFound() {
+        Restaurant existing = buildRestaurant("Teste", "Fast Food", "09:00-21:00");
+        existing.setId(15L);
+
+        when(restaurantRepository.findById(15L)).thenReturn(Optional.of(existing));
+
+        restaurantService.delete(15L);
+
+        verify(restaurantRepository).delete(existing);
+    }
+
+    private Restaurant buildRestaurant(String nome, String tipoCozinha, String horario) {
         Restaurant restaurant = new Restaurant();
-        restaurant.setNome("Bistro Azul");
-        restaurant.setTipoCozinha("Francesa");
-        restaurant.setHorarioFuncionamento("11:00-23:00");
-        restaurant.setEndereco(address());
-
-        Restaurant created = service.create(restaurant, 10L);
-
-        assertEquals(10L, created.getDono().getId());
-        assertEquals("Bistro Azul", created.getNome());
-        Mockito.verify(repo).save(restaurant);
+        restaurant.setNome(nome);
+        restaurant.setTipoCozinha(tipoCozinha);
+        restaurant.setHorarioFuncionamento(horario);
+        restaurant.setEndereco(buildAddress());
+        return restaurant;
     }
 
-    @Test
-    void createRestaurantWithInvalidOwnerThrows() {
-        RestaurantRepository repo = Mockito.mock(RestaurantRepository.class);
-        UserService userService = Mockito.mock(UserService.class);
-        RestaurantService service = new RestaurantService(repo, userService);
-
-        Restaurant restaurant = new Restaurant();
-        restaurant.setNome("Cozinha da Serra");
-        restaurant.setTipoCozinha("Brasileira");
-        restaurant.setHorarioFuncionamento("10:00-20:00");
-        restaurant.setEndereco(address());
-
-        Mockito.when(userService.getById(99L)).thenThrow(new IllegalArgumentException("Usuario nao encontrado"));
-
-        assertThrows(IllegalArgumentException.class, () -> service.create(restaurant, 99L));
-        Mockito.verify(repo, Mockito.never()).save(Mockito.any(Restaurant.class));
-    }
-
-    @Test
-    void updateRestaurantUpdatesAllFields() {
-        RestaurantRepository repo = Mockito.mock(RestaurantRepository.class);
-        UserService userService = Mockito.mock(UserService.class);
-        RestaurantService service = new RestaurantService(repo, userService);
-
-        Restaurant existing = new Restaurant();
-        existing.setId(1L);
-        existing.setNome("Nome Antigo");
-        existing.setTipoCozinha("Italiana");
-        existing.setHorarioFuncionamento("08:00-18:00");
-        existing.setEndereco(address());
-
-        Restaurant updateData = new Restaurant();
-        updateData.setNome("Nome Novo");
-        updateData.setTipoCozinha("Japonesa");
-        updateData.setHorarioFuncionamento("12:00-22:00");
-        updateData.setEndereco(address());
-
-        User novoDono = new User();
-        novoDono.setId(2L);
-
-        Mockito.when(repo.findById(1L)).thenReturn(Optional.of(existing));
-        Mockito.when(userService.getById(2L)).thenReturn(novoDono);
-        Mockito.when(repo.save(Mockito.any(Restaurant.class))).thenAnswer(invocation -> invocation.getArgument(0));
-
-        Restaurant updated = service.update(1L, updateData, 2L);
-
-        assertEquals("Nome Novo", updated.getNome());
-        assertEquals("Japonesa", updated.getTipoCozinha());
-        assertEquals("12:00-22:00", updated.getHorarioFuncionamento());
-        assertEquals(2L, updated.getDono().getId());
-    }
-
-    @Test
-    void getByIdWhenNotFoundThrows() {
-        RestaurantRepository repo = Mockito.mock(RestaurantRepository.class);
-        UserService userService = Mockito.mock(UserService.class);
-        RestaurantService service = new RestaurantService(repo, userService);
-
-        Mockito.when(repo.findById(123L)).thenReturn(Optional.empty());
-
-        assertThrows(IllegalArgumentException.class, () -> service.getById(123L));
-    }
-
-    private Address address() {
+    private Address buildAddress() {
         Address address = new Address();
-        address.setRua("Rua A");
-        address.setNumero("123");
-        address.setCidade("Sao Paulo");
-        address.setCep("00000-000");
+        address.setRua("Rua Neide Silva");
+        address.setNumero("456");
+        address.setCidade("Olinda");
+        address.setCep("02000-000");
         return address;
+    }
+
+    private User buildOwner(Long id) {
+        User user = new User();
+        user.setId(id);
+        user.setNome("Dono " + id);
+        return user;
     }
 }
 
