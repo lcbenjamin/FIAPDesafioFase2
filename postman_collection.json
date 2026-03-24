@@ -1,62 +1,1044 @@
 {
+  "openapi": "3.0.1",
   "info": {
-    "name": "Tech Challenge Fase 1 - Usuarios",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    "title": "OpenAPI definition",
+    "version": "v0"
   },
-  "item": [
+  "servers": [
     {
-      "name": "Cadastrar usuário válido",
-      "request": {
-        "method": "POST",
-        "header": [{"key": "Content-Type", "value": "application/json"}],
-        "url": {"raw": "http://localhost:8080/api/v1/usuarios", "host": ["http", "localhost"], "port": "8080", "path": ["api","v1","usuarios"]},
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"nome\": \"Lucas\",\n  \"email\": \"lucas@example.com\",\n  \"login\": \"lucas\",\n  \"senha\": \"123456\",\n  \"tipo\": \"CLIENTE\",\n  \"endereco\": {\n    \"rua\": \"Rua A\",\n    \"numero\": \"123\",\n    \"cidade\": \"Recife\",\n    \"cep\": \"01000-000\"\n  }\n}"
+      "url": "http://localhost:8080",
+      "description": "Generated server url"
+    }
+  ],
+  "paths": {
+    "/api/v1/usuarios/{id}": {
+      "get": {
+        "tags": [
+          "Usuários"
+        ],
+        "summary": "Buscar usuário por id",
+        "operationId": "getById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Usuários"
+        ],
+        "summary": "Atualizar dados do usuário (exceto senha)",
+        "operationId": "update",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserUpdateDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Usuários"
+        ],
+        "summary": "Excluir usuário",
+        "operationId": "delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
         }
       }
     },
-    {
-      "name": "Cadastro inválido - email duplicado",
-      "request": {
-        "method": "POST",
-        "header": [{"key": "Content-Type", "value": "application/json"}],
-        "url": {"raw": "http://localhost:8080/api/v1/usuarios", "host": ["http", "localhost"], "port": "8080", "path": ["api","v1","usuarios"]},
-        "body": {"mode": "raw", "raw": "{\n  \"nome\": \"Bruna\",\n  \"email\": \"lucas@example.com\",\n  \"login\": \"bruna\",\n  \"senha\": \"abcdef\",\n  \"tipo\": \"CLIENTE\",\n  \"endereco\": {\n    \"rua\": \"Rua B\",\n    \"numero\": \"456\",\n    \"cidade\": \"Recife\",\n    \"cep\": \"02000-000\"\n  }\n}"}
+    "/api/v1/tipos-usuario/{id}": {
+      "get": {
+        "tags": [
+          "Tipos de Usuário"
+        ],
+        "summary": "Buscar tipo de usuário por id",
+        "operationId": "getById_1",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserType"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Tipos de Usuário"
+        ],
+        "summary": "Atualizar tipo de usuário",
+        "operationId": "update_1",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserTypeDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserType"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Tipos de Usuário"
+        ],
+        "summary": "Excluir tipo de usuário",
+        "operationId": "delete_1",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        }
       }
     },
-    {
-      "name": "Alterar senha",
-      "request": {
-        "method": "PATCH",
-        "header": [{"key": "Content-Type", "value": "application/json"}],
-        "url": {"raw": "http://localhost:8080/api/v1/usuarios/1/senha", "host": ["http", "localhost"], "port": "8080", "path": ["api","v1","usuarios","1","senha"]},
-        "body": {"mode": "raw", "raw": "{\n  \"novaSenha\": \"nova123\"\n}"}
+    "/api/v1/restaurantes/{id}": {
+      "get": {
+        "tags": [
+          "Restaurantes"
+        ],
+        "summary": "Buscar restaurante por id",
+        "operationId": "getById_2",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestaurantResponseDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Restaurantes"
+        ],
+        "summary": "Atualizar restaurante",
+        "operationId": "update_2",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RestaurantDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestaurantResponseDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Restaurantes"
+        ],
+        "summary": "Excluir restaurante",
+        "operationId": "delete_2",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        }
       }
     },
-    {
-      "name": "Atualizar dados do usuário",
-      "request": {
-        "method": "PUT",
-        "header": [{"key": "Content-Type", "value": "application/json"}],
-        "url": {"raw": "http://localhost:8080/api/v1/usuarios/1", "host": ["http", "localhost"], "port": "8080", "path": ["api","v1","usuarios","1"]},
-        "body": {"mode": "raw", "raw": "{\n  \"nome\": \"Lucas Costa\",\n  \"tipo\": \"CLIENTE\",\n  \"endereco\": {\n    \"rua\": \"Rua A\",\n    \"numero\": \"123\",\n    \"cidade\": \"Recife\",\n    \"cep\": \"01000-000\"\n  }\n}"}
+    "/api/v1/itens-cardapio/{id}": {
+      "get": {
+        "tags": [
+          "Itens do Cardápio"
+        ],
+        "summary": "Buscar item do cardápio por id",
+        "operationId": "getById_3",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/MenuItemResponseDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Itens do Cardápio"
+        ],
+        "summary": "Atualizar item do cardápio",
+        "operationId": "update_3",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MenuItemDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/MenuItemResponseDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Itens do Cardápio"
+        ],
+        "summary": "Excluir item do cardápio",
+        "operationId": "delete_3",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       }
     },
-    {
-      "name": "Buscar por nome",
-      "request": {
-        "method": "GET",
-        "url": {"raw": "http://localhost:8080/api/v1/usuarios/buscar?nome=luc", "host": ["http", "localhost"], "port": "8080", "path": ["api","v1","usuarios","buscar"], "query": [{"key": "nome", "value": "luc"}]}
+    "/api/v1/usuarios": {
+      "post": {
+        "tags": [
+          "Usuários"
+        ],
+        "summary": "Cadastrar usuário",
+        "operationId": "create",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          }
+        }
       }
     },
-    {
-      "name": "Validar login",
-      "request": {
-        "method": "POST",
-        "url": {"raw": "http://localhost:8080/api/v1/usuarios/login?login=lucas&senha=123456", "host": ["http", "localhost"], "port": "8080", "path": ["api","v1","usuarios","login"], "query": [{"key": "login","value":"lucas"},{"key":"senha","value":"123456"}]}
+    "/api/v1/usuarios/login": {
+      "post": {
+        "tags": [
+          "Usuários"
+        ],
+        "summary": "Validar login do usuário",
+        "operationId": "validarLogin",
+        "parameters": [
+          {
+            "name": "login",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "senha",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/tipos-usuario": {
+      "get": {
+        "tags": [
+          "Tipos de Usuário"
+        ],
+        "summary": "Listar tipos de usuário",
+        "operationId": "listAll",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserType"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Tipos de Usuário"
+        ],
+        "summary": "Cadastrar tipo de usuário",
+        "operationId": "create_1",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserTypeDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserType"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/restaurantes": {
+      "get": {
+        "tags": [
+          "Restaurantes"
+        ],
+        "summary": "Listar restaurantes",
+        "operationId": "listAll_1",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RestaurantResponseDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Restaurantes"
+        ],
+        "summary": "Cadastrar restaurante",
+        "operationId": "create_2",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RestaurantDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestaurantResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/itens-cardapio": {
+      "get": {
+        "tags": [
+          "Itens do Cardápio"
+        ],
+        "summary": "Listar todos os itens do cardápio",
+        "operationId": "listAll_2",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MenuItemResponseDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Itens do Cardápio"
+        ],
+        "summary": "Cadastrar item do cardápio",
+        "operationId": "create_3",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MenuItemDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/MenuItemResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/usuarios/{id}/tipo": {
+      "patch": {
+        "tags": [
+          "Usuários"
+        ],
+        "summary": "Associar/alterar tipo do usuário",
+        "operationId": "updateType",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserTypeAssociationDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/usuarios/{id}/senha": {
+      "patch": {
+        "tags": [
+          "Usuários"
+        ],
+        "summary": "Trocar senha do usuário",
+        "operationId": "updatePassword",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PasswordUpdateDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/usuarios/buscar": {
+      "get": {
+        "tags": [
+          "Usuários"
+        ],
+        "summary": "Buscar usuários por nome",
+        "operationId": "search",
+        "parameters": [
+          {
+            "name": "nome",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/itens-cardapio/restaurante/{restauranteId}": {
+      "get": {
+        "tags": [
+          "Itens do Cardápio"
+        ],
+        "summary": "Listar itens do cardápio por restaurante",
+        "operationId": "listByRestaurante",
+        "parameters": [
+          {
+            "name": "restauranteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MenuItemResponseDto"
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
-  ]
+  },
+  "components": {
+    "schemas": {
+      "Address": {
+        "required": [
+          "cep",
+          "cidade",
+          "numero",
+          "rua"
+        ],
+        "type": "object",
+        "properties": {
+          "rua": {
+            "type": "string"
+          },
+          "numero": {
+            "type": "string"
+          },
+          "cidade": {
+            "type": "string"
+          },
+          "cep": {
+            "type": "string"
+          }
+        }
+      },
+      "UserUpdateDto": {
+        "required": [
+          "endereco",
+          "nome",
+          "tipoId"
+        ],
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string"
+          },
+          "endereco": {
+            "$ref": "#/components/schemas/Address"
+          },
+          "tipoId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "User": {
+        "required": [
+          "email",
+          "endereco",
+          "login",
+          "nome",
+          "senha"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "nome": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "login": {
+            "type": "string"
+          },
+          "senha": {
+            "type": "string"
+          },
+          "dataUltimaAlteracao": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "endereco": {
+            "$ref": "#/components/schemas/Address"
+          },
+          "tipo": {
+            "$ref": "#/components/schemas/UserType"
+          }
+        }
+      },
+      "UserType": {
+        "required": [
+          "nomeTipo"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "nomeTipo": {
+            "type": "string"
+          }
+        }
+      },
+      "UserTypeDto": {
+        "required": [
+          "nomeTipo"
+        ],
+        "type": "object",
+        "properties": {
+          "nomeTipo": {
+            "type": "string"
+          }
+        }
+      },
+      "RestaurantDto": {
+        "required": [
+          "donoId",
+          "endereco",
+          "horarioFuncionamento",
+          "nome",
+          "tipoCozinha"
+        ],
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string"
+          },
+          "endereco": {
+            "$ref": "#/components/schemas/Address"
+          },
+          "tipoCozinha": {
+            "type": "string"
+          },
+          "horarioFuncionamento": {
+            "type": "string"
+          },
+          "donoId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "RestaurantResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "nome": {
+            "type": "string"
+          },
+          "endereco": {
+            "$ref": "#/components/schemas/Address"
+          },
+          "tipoCozinha": {
+            "type": "string"
+          },
+          "horarioFuncionamento": {
+            "type": "string"
+          },
+          "donoId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "MenuItemDto": {
+        "required": [
+          "apenasLocalizado",
+          "caminhoFoto",
+          "descricao",
+          "nome",
+          "preco",
+          "restauranteId"
+        ],
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string"
+          },
+          "descricao": {
+            "type": "string"
+          },
+          "preco": {
+            "type": "number",
+            "format": "double"
+          },
+          "apenasLocalizado": {
+            "type": "boolean"
+          },
+          "caminhoFoto": {
+            "type": "string"
+          },
+          "restauranteId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "MenuItemResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "nome": {
+            "type": "string"
+          },
+          "descricao": {
+            "type": "string"
+          },
+          "preco": {
+            "type": "number",
+            "format": "double"
+          },
+          "apenasLocalizado": {
+            "type": "boolean"
+          },
+          "caminhoFoto": {
+            "type": "string"
+          },
+          "restauranteId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "UserDto": {
+        "required": [
+          "email",
+          "endereco",
+          "login",
+          "nome",
+          "senha",
+          "tipoId"
+        ],
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "login": {
+            "type": "string"
+          },
+          "senha": {
+            "type": "string"
+          },
+          "endereco": {
+            "$ref": "#/components/schemas/Address"
+          },
+          "tipoId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "UserTypeAssociationDto": {
+        "required": [
+          "tipoId"
+        ],
+        "type": "object",
+        "properties": {
+          "tipoId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "PasswordUpdateDto": {
+        "required": [
+          "novaSenha"
+        ],
+        "type": "object",
+        "properties": {
+          "novaSenha": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
 }
-
