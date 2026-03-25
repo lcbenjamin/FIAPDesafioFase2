@@ -1,1044 +1,1906 @@
 {
-  "openapi": "3.0.1",
   "info": {
-    "title": "OpenAPI definition",
-    "version": "v0"
+    "_postman_id": "5baf59aa-bddb-4c2f-b98a-e0b965ef3d57",
+    "name": "TechChallenge Fase 2",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "7887261"
   },
-  "servers": [
+  "item": [
     {
-      "url": "http://localhost:8080",
-      "description": "Generated server url"
+      "name": "api",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "usuarios",
+              "item": [
+                {
+                  "name": "Cadastrar usuário",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"email\": \"bruna.costa@gmail.com\",\n  \"endereco\": {\n    \"cep\": \"50070-900\",\n    \"cidade\": \"Recife\",\n    \"numero\": \"1000\",\n    \"rua\": \"Avenida Manoel Borba\"\n  },\n  \"login\": \"bruna\",\n  \"nome\": \"Bruna Costa\",\n  \"senha\": \"12345\",\n  \"tipoId\": 2\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/usuarios",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "usuarios"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"email\": \"string\",\n  \"endereco\": {\n    \"cep\": \"string\",\n    \"cidade\": \"string\",\n    \"numero\": \"string\",\n    \"rua\": \"string\"\n  },\n  \"login\": \"string\",\n  \"nome\": \"string\",\n  \"senha\": \"string\",\n  \"tipoId\": 7213\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/usuarios",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "usuarios"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"email\": \"string\",\n  \"endereco\": {\n    \"cep\": \"string\",\n    \"cidade\": \"string\",\n    \"numero\": \"string\",\n    \"rua\": \"string\"\n  },\n  \"login\": \"string\",\n  \"nome\": \"string\",\n  \"senha\": \"string\",\n  \"id\": 6153,\n  \"dataUltimaAlteracao\": \"1965-10-04T18:28:05.087Z\",\n  \"tipo\": {\n    \"nomeTipo\": \"string\",\n    \"id\": 9175\n  }\n}"
+                    }
+                  ]
+                },
+                {
+                  "name": "Associar/alterar tipo do usuário",
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"tipoId\": 1603\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/usuarios/:id/tipo",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "usuarios",
+                        ":id",
+                        "tipo"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id",
+                          "value": "1"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"tipoId\": 1603\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/usuarios/:id/tipo",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "usuarios",
+                            ":id",
+                            "tipo"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id",
+                              "value": "6164"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"email\": \"string\",\n  \"endereco\": {\n    \"cep\": \"string\",\n    \"cidade\": \"string\",\n    \"numero\": \"string\",\n    \"rua\": \"string\"\n  },\n  \"login\": \"string\",\n  \"nome\": \"string\",\n  \"senha\": \"string\",\n  \"id\": 6153,\n  \"dataUltimaAlteracao\": \"1965-10-04T18:28:05.087Z\",\n  \"tipo\": {\n    \"nomeTipo\": \"string\",\n    \"id\": 9175\n  }\n}"
+                    }
+                  ]
+                },
+                {
+                  "name": "Buscar usuário por id",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/usuarios/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "usuarios",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id",
+                          "value": "2"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/usuarios/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "usuarios",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id",
+                              "value": "6164"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"email\": \"string\",\n  \"endereco\": {\n    \"cep\": \"string\",\n    \"cidade\": \"string\",\n    \"numero\": \"string\",\n    \"rua\": \"string\"\n  },\n  \"login\": \"string\",\n  \"nome\": \"string\",\n  \"senha\": \"string\",\n  \"id\": 6153,\n  \"dataUltimaAlteracao\": \"1965-10-04T18:28:05.087Z\",\n  \"tipo\": {\n    \"nomeTipo\": \"string\",\n    \"id\": 9175\n  }\n}"
+                    }
+                  ]
+                },
+                {
+                  "name": "Trocar senha do usuário",
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"novaSenha\": \"string\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/usuarios/:id/senha",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "usuarios",
+                        ":id",
+                        "senha"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id",
+                          "value": "1"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"novaSenha\": \"string\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/usuarios/:id/senha",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "usuarios",
+                            ":id",
+                            "senha"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id",
+                              "value": "6164"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "body": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "Excluir usuário",
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/usuarios/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "usuarios",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id",
+                          "value": "6164"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "No Content",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/usuarios/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "usuarios",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id",
+                              "value": "6164"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "body": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "Validar login do usuário",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/usuarios/login?login=bruna&senha=12345",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "usuarios",
+                        "login"
+                      ],
+                      "query": [
+                        {
+                          "key": "login",
+                          "value": "bruna"
+                        },
+                        {
+                          "key": "senha",
+                          "value": "12345"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/usuarios/login?login=string&senha=string",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "usuarios",
+                            "login"
+                          ],
+                          "query": [
+                            {
+                              "key": "login",
+                              "value": "string"
+                            },
+                            {
+                              "key": "senha",
+                              "value": "string"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "body": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "Buscar usuários por nome",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/usuarios/buscar?nome=string",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "usuarios",
+                        "buscar"
+                      ],
+                      "query": [
+                        {
+                          "key": "nome",
+                          "value": "string"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/usuarios/buscar?nome=string",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "usuarios",
+                            "buscar"
+                          ],
+                          "query": [
+                            {
+                              "key": "nome",
+                              "value": "string"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "[\n  {\n    \"email\": \"string\",\n    \"endereco\": {\n      \"cep\": \"string\",\n      \"cidade\": \"string\",\n      \"numero\": \"string\",\n      \"rua\": \"string\"\n    },\n    \"login\": \"string\",\n    \"nome\": \"string\",\n    \"senha\": \"string\",\n    \"id\": 4075,\n    \"dataUltimaAlteracao\": \"1974-10-04T15:48:49.691Z\",\n    \"tipo\": {\n      \"nomeTipo\": \"string\",\n      \"id\": 1921\n    }\n  },\n  {\n    \"email\": \"string\",\n    \"endereco\": {\n      \"cep\": \"string\",\n      \"cidade\": \"string\",\n      \"numero\": \"string\",\n      \"rua\": \"string\"\n    },\n    \"login\": \"string\",\n    \"nome\": \"string\",\n    \"senha\": \"string\",\n    \"id\": 9616,\n    \"dataUltimaAlteracao\": \"1952-12-25T07:18:18.761Z\",\n    \"tipo\": {\n      \"nomeTipo\": \"string\",\n      \"id\": 2983\n    }\n  }\n]"
+                    }
+                  ]
+                },
+                {
+                  "name": "Atualizar dados do usuário (exceto senha)",
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"endereco\": {\n    \"cep\": \"string\",\n    \"cidade\": \"string\",\n    \"numero\": \"string\",\n    \"rua\": \"string\"\n  },\n  \"nome\": \"string\",\n  \"tipoId\": 5684\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/usuarios/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "usuarios",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id",
+                          "value": "6164"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"endereco\": {\n    \"cep\": \"string\",\n    \"cidade\": \"string\",\n    \"numero\": \"string\",\n    \"rua\": \"string\"\n  },\n  \"nome\": \"string\",\n  \"tipoId\": 5684\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/usuarios/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "usuarios",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id",
+                              "value": "6164"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"email\": \"string\",\n  \"endereco\": {\n    \"cep\": \"string\",\n    \"cidade\": \"string\",\n    \"numero\": \"string\",\n    \"rua\": \"string\"\n  },\n  \"login\": \"string\",\n  \"nome\": \"string\",\n  \"senha\": \"string\",\n  \"id\": 6153,\n  \"dataUltimaAlteracao\": \"1965-10-04T18:28:05.087Z\",\n  \"tipo\": {\n    \"nomeTipo\": \"string\",\n    \"id\": 9175\n  }\n}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "tipos-usuario",
+              "item": [
+                {
+                  "name": "Listar tipos de usuário",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/tipos-usuario",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "tipos-usuario"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/tipos-usuario",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "tipos-usuario"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "[\n  {\n    \"nomeTipo\": \"string\",\n    \"id\": 7226\n  },\n  {\n    \"nomeTipo\": \"string\",\n    \"id\": 3661\n  }\n]"
+                    }
+                  ]
+                },
+                {
+                  "name": "Cadastrar tipo de usuário",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"nomeTipo\": \"Cliente\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/tipos-usuario",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "tipos-usuario"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"nomeTipo\": \"string\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/tipos-usuario",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "tipos-usuario"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"nomeTipo\": \"string\",\n  \"id\": 1422\n}"
+                    }
+                  ]
+                },
+                {
+                  "name": "Buscar tipo de usuário por id",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/tipos-usuario/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "tipos-usuario",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id",
+                          "value": "1"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/tipos-usuario/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "tipos-usuario",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id",
+                              "value": "6164"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"nomeTipo\": \"string\",\n  \"id\": 1422\n}"
+                    }
+                  ]
+                },
+                {
+                  "name": "Atualizar tipo de usuário",
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"nomeTipo\": \"CLIENTE\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/tipos-usuario/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "tipos-usuario",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id",
+                          "value": "2"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"nomeTipo\": \"string\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/tipos-usuario/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "tipos-usuario",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id",
+                              "value": "6164"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"nomeTipo\": \"string\",\n  \"id\": 1422\n}"
+                    }
+                  ]
+                },
+                {
+                  "name": "Excluir tipo de usuário",
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/tipos-usuario/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "tipos-usuario",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id",
+                          "value": "6164"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "No Content",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/tipos-usuario/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "tipos-usuario",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id",
+                              "value": "6164"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "body": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "restaurantes",
+              "item": [
+                {
+                  "name": "Listar restaurantes",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/restaurantes",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "restaurantes"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/restaurantes",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "restaurantes"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "[\n  {\n    \"id\": 3178,\n    \"nome\": \"string\",\n    \"endereco\": {\n      \"cep\": \"string\",\n      \"cidade\": \"string\",\n      \"numero\": \"string\",\n      \"rua\": \"string\"\n    },\n    \"tipoCozinha\": \"string\",\n    \"horarioFuncionamento\": \"string\",\n    \"donoId\": 4002\n  },\n  {\n    \"id\": 99,\n    \"nome\": \"string\",\n    \"endereco\": {\n      \"cep\": \"string\",\n      \"cidade\": \"string\",\n      \"numero\": \"string\",\n      \"rua\": \"string\"\n    },\n    \"tipoCozinha\": \"string\",\n    \"horarioFuncionamento\": \"string\",\n    \"donoId\": 4902\n  }\n]"
+                    }
+                  ]
+                },
+                {
+                  "name": "Cadastrar restaurante",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"donoId\": 1,\n  \"endereco\": {\n    \"cep\": \"60005-002\",\n    \"cidade\": \"Recife\",\n    \"numero\": \"10002\",\n    \"rua\": \"Rua do Recife\"\n  },\n  \"horarioFuncionamento\": \"10:00 as 15:00\",\n  \"nome\": \"Restaurante do Manoel\",\n  \"tipoCozinha\": \"Brasileira\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/restaurantes",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "restaurantes"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"donoId\": 6876,\n  \"endereco\": {\n    \"cep\": \"string\",\n    \"cidade\": \"string\",\n    \"numero\": \"string\",\n    \"rua\": \"string\"\n  },\n  \"horarioFuncionamento\": \"string\",\n  \"nome\": \"string\",\n  \"tipoCozinha\": \"string\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/restaurantes",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "restaurantes"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"id\": 3585,\n  \"nome\": \"string\",\n  \"endereco\": {\n    \"cep\": \"string\",\n    \"cidade\": \"string\",\n    \"numero\": \"string\",\n    \"rua\": \"string\"\n  },\n  \"tipoCozinha\": \"string\",\n  \"horarioFuncionamento\": \"string\",\n  \"donoId\": 5034\n}"
+                    }
+                  ]
+                },
+                {
+                  "name": "Buscar restaurante por id",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/restaurantes/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "restaurantes",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id",
+                          "value": "1"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/restaurantes/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "restaurantes",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id",
+                              "value": "6164"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"id\": 3585,\n  \"nome\": \"string\",\n  \"endereco\": {\n    \"cep\": \"string\",\n    \"cidade\": \"string\",\n    \"numero\": \"string\",\n    \"rua\": \"string\"\n  },\n  \"tipoCozinha\": \"string\",\n  \"horarioFuncionamento\": \"string\",\n  \"donoId\": 5034\n}"
+                    }
+                  ]
+                },
+                {
+                  "name": "Atualizar restaurante",
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"donoId\": 6876,\n  \"endereco\": {\n    \"cep\": \"string\",\n    \"cidade\": \"string\",\n    \"numero\": \"string\",\n    \"rua\": \"string\"\n  },\n  \"horarioFuncionamento\": \"string\",\n  \"nome\": \"string\",\n  \"tipoCozinha\": \"string\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/restaurantes/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "restaurantes",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id",
+                          "value": "6164"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"donoId\": 6876,\n  \"endereco\": {\n    \"cep\": \"string\",\n    \"cidade\": \"string\",\n    \"numero\": \"string\",\n    \"rua\": \"string\"\n  },\n  \"horarioFuncionamento\": \"string\",\n  \"nome\": \"string\",\n  \"tipoCozinha\": \"string\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/restaurantes/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "restaurantes",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id",
+                              "value": "6164"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"id\": 3585,\n  \"nome\": \"string\",\n  \"endereco\": {\n    \"cep\": \"string\",\n    \"cidade\": \"string\",\n    \"numero\": \"string\",\n    \"rua\": \"string\"\n  },\n  \"tipoCozinha\": \"string\",\n  \"horarioFuncionamento\": \"string\",\n  \"donoId\": 5034\n}"
+                    }
+                  ]
+                },
+                {
+                  "name": "Excluir restaurante",
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/restaurantes/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "restaurantes",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id",
+                          "value": "6164"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "No Content",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/restaurantes/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "restaurantes",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id",
+                              "value": "6164"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "body": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "itens-cardapio",
+              "item": [
+                {
+                  "name": "Listar todos os itens do cardápio",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/itens-cardapio",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "itens-cardapio"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/itens-cardapio",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "itens-cardapio"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "[\n  {\n    \"id\": 3959,\n    \"nome\": \"string\",\n    \"descricao\": \"string\",\n    \"preco\": 8459.160239743835,\n    \"apenasLocalizado\": true,\n    \"caminhoFoto\": \"string\",\n    \"restauranteId\": 6693\n  },\n  {\n    \"id\": 2402,\n    \"nome\": \"string\",\n    \"descricao\": \"string\",\n    \"preco\": 4307.794505730573,\n    \"apenasLocalizado\": true,\n    \"caminhoFoto\": \"string\",\n    \"restauranteId\": 4348\n  }\n]"
+                    }
+                  ]
+                },
+                {
+                  "name": "Cadastrar item do cardápio",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"apenasLocalizado\": true,\n  \"caminhoFoto\": \"/fotos/imagem.jpeg\",\n  \"descricao\": \"Filé com fritas\",\n  \"nome\": \"Filé com fritas\",\n  \"preco\": 30.00,\n  \"restauranteId\": 1\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/itens-cardapio",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "itens-cardapio"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"apenasLocalizado\": true,\n  \"caminhoFoto\": \"string\",\n  \"descricao\": \"string\",\n  \"nome\": \"string\",\n  \"preco\": 8017.793024708877,\n  \"restauranteId\": 6598\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/itens-cardapio",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "itens-cardapio"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"id\": 9055,\n  \"nome\": \"string\",\n  \"descricao\": \"string\",\n  \"preco\": 6482.331445134648,\n  \"apenasLocalizado\": true,\n  \"caminhoFoto\": \"string\",\n  \"restauranteId\": 2205\n}"
+                    }
+                  ]
+                },
+                {
+                  "name": "Buscar item do cardápio por id",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/itens-cardapio/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "itens-cardapio",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id",
+                          "value": "1"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/itens-cardapio/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "itens-cardapio",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id",
+                              "value": "6164"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"id\": 9055,\n  \"nome\": \"string\",\n  \"descricao\": \"string\",\n  \"preco\": 6482.331445134648,\n  \"apenasLocalizado\": true,\n  \"caminhoFoto\": \"string\",\n  \"restauranteId\": 2205\n}"
+                    }
+                  ]
+                },
+                {
+                  "name": "Atualizar item do cardápio",
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"apenasLocalizado\": true,\n  \"caminhoFoto\": \"string\",\n  \"descricao\": \"string\",\n  \"nome\": \"string\",\n  \"preco\": 8017.793024708877,\n  \"restauranteId\": 6598\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/itens-cardapio/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "itens-cardapio",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id",
+                          "value": "6164"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"apenasLocalizado\": true,\n  \"caminhoFoto\": \"string\",\n  \"descricao\": \"string\",\n  \"nome\": \"string\",\n  \"preco\": 8017.793024708877,\n  \"restauranteId\": 6598\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/itens-cardapio/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "itens-cardapio",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id",
+                              "value": "6164"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"id\": 9055,\n  \"nome\": \"string\",\n  \"descricao\": \"string\",\n  \"preco\": 6482.331445134648,\n  \"apenasLocalizado\": true,\n  \"caminhoFoto\": \"string\",\n  \"restauranteId\": 2205\n}"
+                    }
+                  ]
+                },
+                {
+                  "name": "Excluir item do cardápio",
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/itens-cardapio/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "itens-cardapio",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id",
+                          "value": "6164"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/itens-cardapio/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "itens-cardapio",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id",
+                              "value": "6164"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "body": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "Listar itens do cardápio por restaurante",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/itens-cardapio/restaurante/:restauranteId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "itens-cardapio",
+                        "restaurante",
+                        ":restauranteId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "restauranteId",
+                          "value": "1"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/itens-cardapio/restaurante/:restauranteId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "itens-cardapio",
+                            "restaurante",
+                            ":restauranteId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "restauranteId",
+                              "value": "6164"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "[\n  {\n    \"id\": 3959,\n    \"nome\": \"string\",\n    \"descricao\": \"string\",\n    \"preco\": 8459.160239743835,\n    \"apenasLocalizado\": true,\n    \"caminhoFoto\": \"string\",\n    \"restauranteId\": 6693\n  },\n  {\n    \"id\": 2402,\n    \"nome\": \"string\",\n    \"descricao\": \"string\",\n    \"preco\": 4307.794505730573,\n    \"apenasLocalizado\": true,\n    \"caminhoFoto\": \"string\",\n    \"restauranteId\": 4348\n  }\n]"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ],
-  "paths": {
-    "/api/v1/usuarios/{id}": {
-      "get": {
-        "tags": [
-          "Usuários"
-        ],
-        "summary": "Buscar usuário por id",
-        "operationId": "getById",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Usuários"
-        ],
-        "summary": "Atualizar dados do usuário (exceto senha)",
-        "operationId": "update",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserUpdateDto"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Usuários"
-        ],
-        "summary": "Excluir usuário",
-        "operationId": "delete",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          }
-        }
-      }
-    },
-    "/api/v1/tipos-usuario/{id}": {
-      "get": {
-        "tags": [
-          "Tipos de Usuário"
-        ],
-        "summary": "Buscar tipo de usuário por id",
-        "operationId": "getById_1",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserType"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Tipos de Usuário"
-        ],
-        "summary": "Atualizar tipo de usuário",
-        "operationId": "update_1",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserTypeDto"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserType"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Tipos de Usuário"
-        ],
-        "summary": "Excluir tipo de usuário",
-        "operationId": "delete_1",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          }
-        }
-      }
-    },
-    "/api/v1/restaurantes/{id}": {
-      "get": {
-        "tags": [
-          "Restaurantes"
-        ],
-        "summary": "Buscar restaurante por id",
-        "operationId": "getById_2",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/RestaurantResponseDto"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Restaurantes"
-        ],
-        "summary": "Atualizar restaurante",
-        "operationId": "update_2",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RestaurantDto"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/RestaurantResponseDto"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Restaurantes"
-        ],
-        "summary": "Excluir restaurante",
-        "operationId": "delete_2",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          }
-        }
-      }
-    },
-    "/api/v1/itens-cardapio/{id}": {
-      "get": {
-        "tags": [
-          "Itens do Cardápio"
-        ],
-        "summary": "Buscar item do cardápio por id",
-        "operationId": "getById_3",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/MenuItemResponseDto"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Itens do Cardápio"
-        ],
-        "summary": "Atualizar item do cardápio",
-        "operationId": "update_3",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/MenuItemDto"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/MenuItemResponseDto"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Itens do Cardápio"
-        ],
-        "summary": "Excluir item do cardápio",
-        "operationId": "delete_3",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/v1/usuarios": {
-      "post": {
-        "tags": [
-          "Usuários"
-        ],
-        "summary": "Cadastrar usuário",
-        "operationId": "create",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserDto"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1/usuarios/login": {
-      "post": {
-        "tags": [
-          "Usuários"
-        ],
-        "summary": "Validar login do usuário",
-        "operationId": "validarLogin",
-        "parameters": [
-          {
-            "name": "login",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "senha",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/v1/tipos-usuario": {
-      "get": {
-        "tags": [
-          "Tipos de Usuário"
-        ],
-        "summary": "Listar tipos de usuário",
-        "operationId": "listAll",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/UserType"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "Tipos de Usuário"
-        ],
-        "summary": "Cadastrar tipo de usuário",
-        "operationId": "create_1",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserTypeDto"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserType"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1/restaurantes": {
-      "get": {
-        "tags": [
-          "Restaurantes"
-        ],
-        "summary": "Listar restaurantes",
-        "operationId": "listAll_1",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/RestaurantResponseDto"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "Restaurantes"
-        ],
-        "summary": "Cadastrar restaurante",
-        "operationId": "create_2",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RestaurantDto"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/RestaurantResponseDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1/itens-cardapio": {
-      "get": {
-        "tags": [
-          "Itens do Cardápio"
-        ],
-        "summary": "Listar todos os itens do cardápio",
-        "operationId": "listAll_2",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/MenuItemResponseDto"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "Itens do Cardápio"
-        ],
-        "summary": "Cadastrar item do cardápio",
-        "operationId": "create_3",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/MenuItemDto"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/MenuItemResponseDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1/usuarios/{id}/tipo": {
-      "patch": {
-        "tags": [
-          "Usuários"
-        ],
-        "summary": "Associar/alterar tipo do usuário",
-        "operationId": "updateType",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserTypeAssociationDto"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1/usuarios/{id}/senha": {
-      "patch": {
-        "tags": [
-          "Usuários"
-        ],
-        "summary": "Trocar senha do usuário",
-        "operationId": "updatePassword",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PasswordUpdateDto"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/v1/usuarios/buscar": {
-      "get": {
-        "tags": [
-          "Usuários"
-        ],
-        "summary": "Buscar usuários por nome",
-        "operationId": "search",
-        "parameters": [
-          {
-            "name": "nome",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/User"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1/itens-cardapio/restaurante/{restauranteId}": {
-      "get": {
-        "tags": [
-          "Itens do Cardápio"
-        ],
-        "summary": "Listar itens do cardápio por restaurante",
-        "operationId": "listByRestaurante",
-        "parameters": [
-          {
-            "name": "restauranteId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/MenuItemResponseDto"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
     }
-  },
-  "components": {
-    "schemas": {
-      "Address": {
-        "required": [
-          "cep",
-          "cidade",
-          "numero",
-          "rua"
-        ],
-        "type": "object",
-        "properties": {
-          "rua": {
-            "type": "string"
-          },
-          "numero": {
-            "type": "string"
-          },
-          "cidade": {
-            "type": "string"
-          },
-          "cep": {
-            "type": "string"
-          }
-        }
-      },
-      "UserUpdateDto": {
-        "required": [
-          "endereco",
-          "nome",
-          "tipoId"
-        ],
-        "type": "object",
-        "properties": {
-          "nome": {
-            "type": "string"
-          },
-          "endereco": {
-            "$ref": "#/components/schemas/Address"
-          },
-          "tipoId": {
-            "type": "integer",
-            "format": "int64"
-          }
-        }
-      },
-      "User": {
-        "required": [
-          "email",
-          "endereco",
-          "login",
-          "nome",
-          "senha"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "nome": {
-            "type": "string"
-          },
-          "email": {
-            "type": "string"
-          },
-          "login": {
-            "type": "string"
-          },
-          "senha": {
-            "type": "string"
-          },
-          "dataUltimaAlteracao": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "endereco": {
-            "$ref": "#/components/schemas/Address"
-          },
-          "tipo": {
-            "$ref": "#/components/schemas/UserType"
-          }
-        }
-      },
-      "UserType": {
-        "required": [
-          "nomeTipo"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "nomeTipo": {
-            "type": "string"
-          }
-        }
-      },
-      "UserTypeDto": {
-        "required": [
-          "nomeTipo"
-        ],
-        "type": "object",
-        "properties": {
-          "nomeTipo": {
-            "type": "string"
-          }
-        }
-      },
-      "RestaurantDto": {
-        "required": [
-          "donoId",
-          "endereco",
-          "horarioFuncionamento",
-          "nome",
-          "tipoCozinha"
-        ],
-        "type": "object",
-        "properties": {
-          "nome": {
-            "type": "string"
-          },
-          "endereco": {
-            "$ref": "#/components/schemas/Address"
-          },
-          "tipoCozinha": {
-            "type": "string"
-          },
-          "horarioFuncionamento": {
-            "type": "string"
-          },
-          "donoId": {
-            "type": "integer",
-            "format": "int64"
-          }
-        }
-      },
-      "RestaurantResponseDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "nome": {
-            "type": "string"
-          },
-          "endereco": {
-            "$ref": "#/components/schemas/Address"
-          },
-          "tipoCozinha": {
-            "type": "string"
-          },
-          "horarioFuncionamento": {
-            "type": "string"
-          },
-          "donoId": {
-            "type": "integer",
-            "format": "int64"
-          }
-        }
-      },
-      "MenuItemDto": {
-        "required": [
-          "apenasLocalizado",
-          "caminhoFoto",
-          "descricao",
-          "nome",
-          "preco",
-          "restauranteId"
-        ],
-        "type": "object",
-        "properties": {
-          "nome": {
-            "type": "string"
-          },
-          "descricao": {
-            "type": "string"
-          },
-          "preco": {
-            "type": "number",
-            "format": "double"
-          },
-          "apenasLocalizado": {
-            "type": "boolean"
-          },
-          "caminhoFoto": {
-            "type": "string"
-          },
-          "restauranteId": {
-            "type": "integer",
-            "format": "int64"
-          }
-        }
-      },
-      "MenuItemResponseDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "nome": {
-            "type": "string"
-          },
-          "descricao": {
-            "type": "string"
-          },
-          "preco": {
-            "type": "number",
-            "format": "double"
-          },
-          "apenasLocalizado": {
-            "type": "boolean"
-          },
-          "caminhoFoto": {
-            "type": "string"
-          },
-          "restauranteId": {
-            "type": "integer",
-            "format": "int64"
-          }
-        }
-      },
-      "UserDto": {
-        "required": [
-          "email",
-          "endereco",
-          "login",
-          "nome",
-          "senha",
-          "tipoId"
-        ],
-        "type": "object",
-        "properties": {
-          "nome": {
-            "type": "string"
-          },
-          "email": {
-            "type": "string"
-          },
-          "login": {
-            "type": "string"
-          },
-          "senha": {
-            "type": "string"
-          },
-          "endereco": {
-            "$ref": "#/components/schemas/Address"
-          },
-          "tipoId": {
-            "type": "integer",
-            "format": "int64"
-          }
-        }
-      },
-      "UserTypeAssociationDto": {
-        "required": [
-          "tipoId"
-        ],
-        "type": "object",
-        "properties": {
-          "tipoId": {
-            "type": "integer",
-            "format": "int64"
-          }
-        }
-      },
-      "PasswordUpdateDto": {
-        "required": [
-          "novaSenha"
-        ],
-        "type": "object",
-        "properties": {
-          "novaSenha": {
-            "type": "string"
-          }
-        }
-      }
-    }
-  }
+  ]
 }
